@@ -24,21 +24,11 @@ describe('Tests index', function () {
         const result = app.generateJWT(process.env.API_KEY, process.env.SECRET_KEY)
 
         expect(result.statusCode).to.equal(200);
-        
-        let response = JSON.parse(result.body);
-
-        expect(response.generation).to.be.an('boolean')
-        expect(response.generation).to.be.equal(true)
     });
     
     it('verifies failure jwt', async () => {
         const result = app.generateJWT(null, null)
 
         expect(result.statusCode).to.equal(500);
-        
-        let response = JSON.parse(result.body);
-
-        expect(response.generation).to.be.an('boolean')
-        expect(response.generation).to.be.equal(false)
     });
 });

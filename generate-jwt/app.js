@@ -35,19 +35,13 @@ exports.generateJWT = function (apiKey, secretKey) {
         });
         response = {
             'statusCode': 200,
-            'body': JSON.stringify({
-                jwt: token,
-                generation: true
-            })
+            'jwt': token
         }
     } catch (err) {
         console.log(err);
         response = {
             'statusCode': 500,
-            'body': JSON.stringify({
-                jwt: null,
-                generation: false
-            })
+            'jwt': null
         }
     }
     return response
