@@ -128,4 +128,5 @@ $RECYCLE.BIN/
 # custom
 /generate-jwt/env.json
 .aws-sam
+samconfig.toml
 # End of https://www.gitignore.io/api/osx,node,linux,windows
