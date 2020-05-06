@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'GenerateJWT
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  GenerateJWT:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GenerateJWT
+      Handler: app.lambdaHandler
+      Runtime: nodejs12.x
+      Environment:
+        Variables:
+          API_KEY:
+            Ref: ApiKey
+          SECRET_KEY:
+            Ref: SecretKey
+Parameters:
+  ApiKey:
+    Type: String
+  SecretKey:
+    Type: String
+Outputs:
+  GenerateJWT:
+    Description: GenerateJWT Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - GenerateJWT
+      - Arn
+  GenerateJWTIamRole:
+    Description: Implicit IAM Role created for GenerateJWT function
+    Value:
+      Fn::GetAtt:
+      - GenerateJWTRole
+      - Arn
