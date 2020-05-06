@@ -1,9 +1,9 @@
-// const axios = require('axios')
-// const url = 'http://checkip.amazonaws.com/';
 const jwt = require('jsonwebtoken')
 
 let response;
 
+const apiKey = process.env.API_KEY;
+const secretKey = process.env.SECRET_KEY;
 /**
  *
  * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
@@ -17,9 +17,6 @@ let response;
  * 
  */
 exports.lambdaHandler = async (event, context) => {
-    const apiKey = process.env.API_KEY
-    const secretKey = process.env.SECRET_KEY
-
     return this.generateJWT(apiKey, secretKey)
 };
 
