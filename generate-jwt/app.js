@@ -41,5 +41,5 @@ exports.generateJWT = function (apiKey, secretKey) {
             'jwt': null
         }
     }
-    return response
+    return response;
 };
